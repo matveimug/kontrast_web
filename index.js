@@ -29,7 +29,7 @@ new Vue({
           .then(res => res.json())
           .then(res => {
               this.sheets = parseSheet(res);
-              console.log(parseSheet(res))
+              console.log(parseSheet(res));
           });
   },
   template: `
