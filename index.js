@@ -25,16 +25,16 @@ new Vue({
     sheets: []
   },
   created() {
-      let self = this;
       fetch(`https://spreadsheets.google.com/feeds/list/${id}/od6/public/values?alt=json`)
           .then(res => res.json())
           .then(res => {
-              self.sheets = parseSheet(res);
+              this.sheets = parseSheet(res);
+              console.log(parseSheet(res))
           });
   },
   template: `
   <div>
-    <bio v-for="item in sheets" :name="item.artist" :text="item.bio" :key="item.id" />
+    <bio v-for="item in sheets" :name="item.artist" :text="item.bio" :key="item.id" :pic="item.profilepic" />
   </div>
   `
 });
