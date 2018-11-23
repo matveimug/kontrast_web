@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/user/public_html/misc/kontrast_new
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp index.js $DEPLOYPATH
