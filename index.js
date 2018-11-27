@@ -29,11 +29,11 @@ new Vue({
           .then(res => res.json())
           .then(res => {
               this.sheets = parseSheet(res);
-              console.log(parseSheet(res));
+              console.log(res);
           });
   },
   template: `
-  <div>
+  <div class="bios container flex">
     <bio v-for="item in sheets" :name="item.artist" :text="item.bio" :key="item.id" :pic="item.profilepic" />
   </div>
   `

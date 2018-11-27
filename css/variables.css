@@ -1,0 +1,30 @@
+/* Variables
+=============================================================== */
+
+:root {
+    /* colors */
+    --black: #000000;
+    --red: #ff0000;
+    --blue: #0000ff;
+
+    --link-color: var(--blue);
+    --text-color: var(--black);
+
+    /* paddings */
+    --padding-sm: 1em;
+    --padding-md: 2em;
+    --padding-lg: 4em;
+
+    /* margins */
+    --margin-sm: 1em;
+    --margin-md: 2em;
+    --margin-lg: 4em;
+
+    /* widths */
+    --width-sm: 10em;
+    --width-md: 20em;
+    --width-lg: 40em;
+
+    /* fonts */
+    --font-main: 'Space Mono', monospace;
+}

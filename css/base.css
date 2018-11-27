@@ -1,0 +1,26 @@
+/* Base
+=============================================================== */
+
+/* Box sizing reset */
+html {
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.container {
+    padding: var(--padding-md);
+}
+
+.flex {
+    display: flex;
+}

@@ -5,10 +5,10 @@ export default {
     pic: {type: String}
   },
   template: `
-    <div>
-      <img v-if="this.pic" :src="this.pic" :alt="this.name">
-      <h3>{{this.name}}</h3>
-      <p>{{this.text}}</p>
+    <div class="bio-container">
+      <img class="bio-pic" v-if="this.pic" :src="this.pic" :alt="this.name">
+      <h2 class="bio-name">{{this.name}}</h2>
+      <p class="bio-body">{{this.text}}</p>
     </div>
   `
 };
