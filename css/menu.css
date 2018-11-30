@@ -1,0 +1,16 @@
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+}
+.menu-item {
+    cursor: pointer;
+    user-select: none;
+}
+.menu-item:hover .menu-title{
+    text-decoration: line-through;
+}
+.menu-item.active .menu-title{
+    text-decoration: line-through;
+}

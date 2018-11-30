@@ -2,4 +2,6 @@
 @import url('base.css');
 @import url('variables.css');
 
-@import url('bio.css');
+@import url('page.css');
+@import url('menu.css');
+@import url('content.css');

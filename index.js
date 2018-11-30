@@ -33,18 +33,21 @@ new Vue({
           .then(res => res.json())
           .then(res => {
               this.sheets = parseSheet(res);
-              console.log(res);
+              this.current = this.sheets[0].artist
           });
   },
   template: `
   <div class="page">
     <Menu>
-      <MenuItem @click.native="current = item.artist" v-for="item in sheets" :title="item.artist" />
-      <MenuItem title="About" @click.native="current = 'About'"/>
-      <p>{{current}}</p>
+      <MenuItem 
+      @click.native="current = item.artist" 
+      v-for="item in sheets" 
+      :title="item.artist"
+      :current="current" />
     </Menu>
     <Content>
       <Bio 
+        v-if="item.artist === current"
         v-for="item in sheets" 
         :name="item.artist" 
         :text="item.bio" 

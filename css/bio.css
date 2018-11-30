@@ -1,8 +1,0 @@
-.bio-container {
-    padding: var(--padding-sm);
-    margin: var(--margin-sm);
-    max-width: var(--width-md)
-}
-.bio-pic {
-    max-width: 100%;
-}
