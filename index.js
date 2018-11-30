@@ -15,14 +15,18 @@ const parseSheet = data => {
 };
 const id = '1rMcOKXYWOgcd7y0uxvaUw--VMwcz3nKr9D4Zo58itRU';
 
-import bio from "./components/bio.js";
+import Bio from "./components/Bio.js";
+import Menu from "./components/Menu.js";
+import MenuItem from "./components/MenuItem.js";
+import Content from "./components/Content.js";
 
 new Vue({
-  components: { bio },
+  components: { Bio, Menu, Content, MenuItem },
   el: "#app",
   data: {
     loaded: false,
-    sheets: []
+    sheets: [],
+    current: ''
   },
   created() {
       fetch(`https://spreadsheets.google.com/feeds/list/${id}/od6/public/values?alt=json`)
@@ -33,8 +37,20 @@ new Vue({
           });
   },
   template: `
-  <div class="bios container flex">
-    <bio v-for="item in sheets" :name="item.artist" :text="item.bio" :key="item.id" :pic="item.profilepic" />
+  <div class="page">
+    <Menu>
+      <MenuItem @click.native="current = item.artist" v-for="item in sheets" :title="item.artist" />
+      <MenuItem title="About" @click.native="current = 'About'"/>
+      <p>{{current}}</p>
+    </Menu>
+    <Content>
+      <Bio 
+        v-for="item in sheets" 
+        :name="item.artist" 
+        :text="item.bio" 
+        :key="item.id" 
+        :pic="item.profilepic" />
+    </Content>
   </div>
   `
 });
