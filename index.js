@@ -1,20 +1,6 @@
-const parseSheet = data => {
-    return data.feed.entry.map(entry => {
-        return Object.keys(entry)
-            .map(field => {
-                if (field.startsWith("gsx$")) {
-                    return [field.split("$")[1], entry[field].$t];
-                }
-            })
-            .filter(field => field)
-            .reduce((field, item) => {
-                field[item[0]] = item[1];
-                return field;
-            }, {});
-    });
-};
 const id = '1rMcOKXYWOgcd7y0uxvaUw--VMwcz3nKr9D4Zo58itRU';
 
+import utils from "./utils.js";
 import Bio from "./components/Bio.js";
 import Menu from "./components/Menu.js";
 import MenuItem from "./components/MenuItem.js";
@@ -26,13 +12,14 @@ new Vue({
   data: {
     loaded: false,
     sheets: [],
-    current: ''
+    current: '',
+    emoji: ['💩','👹','😻','😭','🤠','👻','💀','👺','😎','🤑','🤯','👁','💁🏻','💅🏿','🍌','🥑','🥚','😂']
   },
   created() {
       fetch(`https://spreadsheets.google.com/feeds/list/${id}/od6/public/values?alt=json`)
           .then(res => res.json())
           .then(res => {
-              this.sheets = parseSheet(res);
+              this.sheets = utils.parseSheet(res);
               this.current = this.sheets[0].artist
           });
   },
@@ -43,7 +30,8 @@ new Vue({
       @click.native="current = item.artist" 
       v-for="item in sheets" 
       :title="item.artist"
-      :current="current" />
+      :current="current" 
+      :emoji="emoji"/>
     </Menu>
     <Content>
       <Bio 

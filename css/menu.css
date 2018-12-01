@@ -9,8 +9,8 @@
     user-select: none;
 }
 .menu-item:hover .menu-title{
-    text-decoration: line-through;
+    text-decoration: none;
 }
 .menu-item.active .menu-title{
-    text-decoration: line-through;
+    text-decoration: none;
 }
